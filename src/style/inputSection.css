@@ -1,0 +1,110 @@
+/* Header styling containing the TODO title and theme icon button */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 540px;
+}
+
+/* "TODO" title */
+header h1 {
+  color: #ffffff;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  letter-spacing: 0.3em;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Theme toggle button */
+header button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header button img {
+  width: 22px;
+  height: 22px;
+}
+
+/* Text field input card container */
+.text-field {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 540px;
+  height: 60px;
+  background-color: var(--surface);
+  border-radius: 5px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  box-shadow: var(--shadow);
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Checkbox styling */
+.text-field input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  margin-right: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.text-field input[type="checkbox"]:hover {
+  border-color: var(--accent);
+}
+
+.text-field input[type="checkbox"]:checked {
+  background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+  border: none;
+}
+
+/* Add checkmark icon when checked (optional, matches design) */
+.text-field input[type="checkbox"]:checked::before {
+  content: "";
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+
+/* Actual text input field */
+.text-field input[type="text"] {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--text-primary);
+  transition: color 0.5s ease;
+}
+
+.text-field input[type="text"]::placeholder {
+  color: var(--text-muted);
+}
+
+/* Responsive layout adjustments for mobile screens */
+@media (max-width: 540px) {
+  header,
+  .text-field {
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

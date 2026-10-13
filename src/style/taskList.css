@@ -1,0 +1,104 @@
+/* Main card container for the list and footer */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 540px;
+  height: 46vh;
+  background-color: var(--surface);
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+  overflow: scroll;
+  box-sizing: border-box;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Footer section inside/attached to the list */
+.task-list-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 540px;
+  padding: 16px 20px;
+  background-color: var(--surface);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  color: var(--text-muted);
+  box-sizing: border-box;
+  box-shadow: var(--shadow); /* Keeps the card shadow cohesive if separate */
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Items count text */
+.task-list-footer p {
+  margin: 0;
+}
+
+.task-list-footer p span {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Filter buttons container */
+.task-list-footer .filters {
+  display: flex;
+  gap: 16px;
+}
+
+/* Individual filter & clear buttons */
+.task-list-footer button {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0;
+  text-transform: capitalize;
+  transition: color 0.2s ease;
+}
+
+.task-list-footer button:hover,
+.task-list-footer button.active {
+  color: var(--accent); /* Primary active filter color */
+}
+
+.clear-completed:hover {
+  color: var(--text-secondary);
+}
+
+/* Responsive layout adjustments for mobile screens */
+@media (max-width: 540px) {
+  .task-list,
+  .task-list-footer {
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* In Frontend Mentor style, the filters often move to a separate floating box on mobile,
+     but if kept inside the footer, this layout prevents text cramming: */
+  .task-list-footer {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  /* Move filters row below items-left and clear-completed if necessary,
+     or let them sit cleanly with wrapped spacing */
+  .task-list-footer .filters {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    background-color: var(--surface);
+    padding: 14px;
+    border-radius: 5px;
+    box-shadow: 0 15px 30px -10px rgba(194, 195, 214, 0.3);
+  }
+}
